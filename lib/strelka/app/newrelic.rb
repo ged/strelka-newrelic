@@ -82,8 +82,11 @@ module Strelka::App::NewRelic
 				"%s %s" % [ request.verb, request.app_path ]
 			end
 
-		self.log.debug "  txname is: %p" % [ txname ]
-		options = { name: txname.to_s, request: request, category: :rack }
+		options = {
+			name:     txname.to_s,
+			request:  request,
+			category: 'Controller/Strelka',
+		}
 		self.perform_action_with_newrelic_trace( options ) do
 			super
 		end

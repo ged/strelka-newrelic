@@ -48,7 +48,7 @@ describe Strelka::App::NewRelic do
 
 
 	before( :all ) do
-		setup_logging( :debug )
+		setup_logging()
 
 		@request_factory = Mongrel2::RequestFactory.new( route: '' )
 
@@ -81,6 +81,8 @@ describe Strelka::App::NewRelic do
 
 		before( :each ) do
 			@app = Class.new( Strelka::App ) do
+				def self::name; "TestApp"; end
+
 				plugin :newrelic
 				def initialize( appid='nr-test', sspec=TEST_SEND_SPEC, rspec=TEST_RECV_SPEC )
 					super
@@ -133,7 +135,7 @@ describe Strelka::App::NewRelic do
 				response.status.should == HTTP::OK
 
 	            engine = NewRelic::Agent.agent.stats_engine
-	            engine.stats_hash.keys.map( &:to_s ).should include( 'Controller/nr-test/GET_foo' )
+	            engine.stats_hash.keys.map( &:to_s ).should include( 'Controller/Strelka/TestApp/GET_foo' )
 			end
 			
 		end
