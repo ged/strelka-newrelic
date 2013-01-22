@@ -53,12 +53,9 @@ module Strelka::App::NewRelic
 
 	### Set up the NewRelic agent.
 	def run( * )
-		logger = Loggability[ NewRelic ]
-	    log_wrapper = NewRelic::Agent::AgentLogger.new( {:log_level => :debug}, '', logger )
-	    NewRelic::Agent.logger = log_wrapper
-
+		logger      = Loggability[ NewRelic ]
 		environment = 'development' if self.class.in_devmode?
-		options = { env: environment, log: log_wrapper }
+		options     = { env: environment, log: logger }
 
 		self.log.info "Starting the NewRelic agent."
 		NewRelic::Agent.manual_start( options )
