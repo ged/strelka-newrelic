@@ -1,0 +1,933 @@
+2013-01-07  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgext/update-all:
+	Add "mbox" extension to .hgext
+	[9dba3cea8d36] [tip]
+
+2013-01-03  Michael Granger  <ged@FaerieMUD.org>
+
+	* source/hg-statall:
+	Add traversal into MQ patch dirs, fix iteration bug in source/hg-
+	statall
+	[e55a46839972]
+
+	* .hgrc:
+	Update google fingerprint
+	[afc464cfb580]
+
+2012-10-02  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bashrc, .gitconfig, .hgrc, .hoerc, .ssh/config, bin/editor,
+	bin/mate:
+	Checkpoint
+	[40bbf7ec528b]
+
+	* .environment:
+	Add laika-sdk to the CDPATH
+	[5ec6eeb126e0]
+
+2012-06-26  Michael Granger  <ged@FaerieMUD.org>
+
+	* source/hg-statall:
+	Adding source/hg-statall
+	[aa42b79f32f6]
+
+	* bin/tm2fave:
+	Improvements to tm2fave
+	[cf74474074a1]
+
+2012-05-23  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgext/update-all:
+	Fix missing comma in .hgext/update-all
+	[cf4018e0897c]
+
+	* .gemrc:
+	Quote .gemrc values
+	[df40c7ec9839]
+
+2012-04-26  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_functions:
+	Merged with 151:a9b4b2a1b963
+	[cf4c9d6f0d36]
+
+2012-01-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_functions:
+	Whitespace cleanup.
+	[746291a83435]
+
+	* .bash_profile:
+	Whitespace cleanup
+	[24fe3a2a0684]
+
+2012-05-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Add .rbx to the list of files excluded from Hoe manifests
+	[b1749c3bb84e]
+
+	* .gemrc:
+	Turn on fivefish for rdoc by default
+	[a57e0bc92853]
+
+	* .hgext/update-all, .hgrc:
+	Add cedit to mercurial extensions
+	[df4895b8da0c]
+
+2012-04-19  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Add benchmarks to the list of non-manifest artifacts
+	[a9b4b2a1b963]
+
+2012-03-28  Michael Granger  <ged@FaerieMUD.org>
+
+	* bin/tm2fave:
+	Add a header to tm2fave
+	[63e309482ae4]
+
+	* .tm_properties:
+	Update tm_properties
+	[2962a155f304]
+
+	* .hgrc:
+	Giving up on hggithub
+	[c6d88c8c8e2b]
+
+	* .hgignore_global:
+	Update global hgignore
+	[3502bb0fe938]
+
+	* .bash_aliases, .sqliterc:
+	Add sqlite3 default options
+	[cf41f62abe54]
+
+2012-03-02  Michael Granger  <ged@FaerieMUD.org>
+
+	* .tm_properties:
+	Replace ruby wrapper with rvm-auto-ruby in homedir .tm_properties
+	[c48a66735c72]
+
+	* .hoerc:
+	Ignore .rspec files in .hoerc
+	[bb2494235696]
+
+	* .hgrc:
+	Replace hg-git with hg-github
+	[2592bf4d7ada]
+
+	* .hgignore_global:
+	Add tmtags to the global Mercurial ignorefile
+	[50263f852009]
+
+	* .bashrc:
+	Add rvm bin path to the $PATH in .bashrc
+	[92a52564757f]
+
+	* .bash_functions:
+	Add function to .bash_functions for updating Changes.rdoc
+	[37131c2c46c5]
+
+2012-01-06  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgsigs:
+	Added signature for changeset 62204039be87
+	[cf52392d75d6]
+
+	* .tm_properties:
+	Remove the projectDirectory setting to (hopefully) remove ~ from the
+	Cmd-T list
+	[62204039be87]
+
+	* .hoerc:
+	Add .rvm.gems to the Hoe ignorelist
+	[95bd1b6e78ed]
+
+	* .bash_functions, .bash_profile:
+	Clean up a bunch of .bash* cruft, and do prompt-generation in a
+	more-portable way
+	[7979bc0c5b88]
+
+	* bin/tm2fave:
+	Skip already-favorited directories
+	[9cfb2478e28a]
+
+2012-01-05  Michael Granger  <ged@FaerieMUD.org>
+
+	* bin/tm2fave:
+	Adding initial version of a command-line tool for creating TM2
+	favorites
+	[9fbcbbe06b87]
+
+2012-01-03  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Adding textmate2 properties files to the exclude list
+	[d147f8c1412e]
+
+2011-12-27  Michael Granger  <ged@FaerieMUD.org>
+
+	* .global.gemset:
+	Automated merge with ssh://deveiate/repo/homedir
+	[b463c74d9c55]
+
+	* bin/c++, bin/cc, bin/g++, bin/gcc:
+	Fixed symlinks for colorgcc
+	[1d4536c9c620]
+
+	* .global.gems, .global.gemset:
+	Renamed global gemset file to work with rvm import
+	[af93c866cff9]
+
+	* .rspec:
+	Adding .rspec
+	[0f475ee3fae9]
+
+	* Automated merge with ssh://deveiate/repo/homedir
+	[2824281a16bc]
+
+	* .tm_properties:
+	Set the default font in .tm_properties
+	[10fdf188ca87]
+
+	* .bash_aliases:
+	Quote the patch dir path for the 'mq' alias for directories with
+	spaces
+	[b851cefd733a]
+
+	* Automated merge with ssh://deveiate/repo/homedir
+	[de4116cce2a0]
+
+	* .global.gemset, .hgrc, bin/mate:
+	Adding global gemset export
+	[8233f4302f1c]
+
+2011-12-21  Michael Granger  <ged@FaerieMUD.org>
+
+	* .tm_properties:
+	Adding TextMate2 properties file
+	[01e178066f88]
+
+	* bin/mate:
+	Updating 'mate' command to TextMate 2's version
+	[f62862fc024c]
+
+2011-12-07  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoe_template/default/History.md.erb,
+	.hoe_template/default/Manifest.txt.erb,
+	.hoe_template/default/README.md.erb,
+	.hoe_template/default/Rakefile.erb,
+	.hoe_template/default/lib/file_name.rb.erb,
+	.hoe_template/default/spec/file_name_spec.rb.erb, .hoerc:
+	Updated hoe template, .hoerc
+	[cb81dfc9e381]
+
+2011-11-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	hoerc: More ignore patterns, and set the default email info to ruby-
+	talk
+	[15090a05e129]
+
+	* .hgrc:
+	Consolidate the keyword globs in .hgrc
+	[027465074e4f]
+
+2011-11-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Add .pryrc to the Hoe ignore list
+	[0328103eecd8]
+
+2011-11-07  Michael Granger  <ged@FaerieMUD.org>
+
+	* .elisp/ini/ini-customize.el:
+	Updated customized variables
+	[b96eb14f7f24]
+
+2011-11-02  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Added more manifest exclusions to hoerc
+	[560bfd3995e0]
+
+2011-10-18  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgrc:
+	Automated merge with ssh://deveiate/repo/homedir
+	[e1ddfe2405dc]
+
+	* .hgrc:
+	Turning on patchbomb extension in .hgrc
+	[2c713095b9e7]
+
+2011-10-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgignore_global, .hgrc:
+	Adding global ignorefile
+	[6def7e7750d8]
+
+2011-10-06  Michael Granger  <ged@FaerieMUD.org>
+
+	* .gitconfig, .hgrc:
+	Changes to .hgrc and .gitconfig for SourceTree.
+	[e3d92541a561]
+
+2011-10-03  Michael Granger  <ged@FaerieMUD.org>
+
+	* Automated merge with ssh://deveiate/repo/homedir
+	[8f50cc41cb3a]
+
+	* .ssh/config:
+	Change the forwarded ports to sidonie
+	[268540396106]
+
+	* .hoerc:
+	Update the hoerc ignore pattern
+	[9199e019a7fb]
+
+	* .hgrc:
+	Updating .hgrc: rework deprecated 'defaults' section as aliases, set
+	qseries colors, show nearest function in diffs, fix header
+	characters in histlog
+	[9b460a5b65ae]
+
+	* .bash_functions:
+	Added "mqup" function for updating MQ-managed projects in one
+	command
+	[3edfe081f5b4]
+
+	* .bash_profile:
+	Add the HG info to the screen prompt as well
+	[c7d741af6112]
+
+2011-09-30  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Add some more ignored files to the .hoerc
+	[14c0acb83b26]
+
+	* .hgrc:
+	Add some more ignored files to the .hoerc
+	[5fdf31873e05]
+
+2011-09-28  Michael Granger  <ged@FaerieMUD.org>
+
+	* .ssh/config:
+	SSH local forward to duir:8086 instead of 80
+	[376983212e25]
+
+	* .hoerc:
+	Merged hoerc patterns with the ones on gont
+	[12b37868f7e3]
+
+	* .hoerc:
+	Adding some hoerc ignore patterns
+	[38450be9c923]
+
+2011-09-22  Michael Granger  <ged@FaerieMUD.org>
+
+	* .elisp/ini/ini-customize.el:
+	Updated ini-customize.el
+	[4e9107175595]
+
+	* .hoerc:
+	Turn signing on in the .hoerc
+	[9646f238a082]
+
+2011-09-06  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_profile:
+	Don't assume keychain lives under /opt/local
+	[4179ccc3a108]
+
+	* .hgext/update-all:
+	Fix the update-all script in .hgext
+	[187ab630b78d]
+
+	* Merged with de6931737617
+	[3010edf138fc]
+
+	* .gitconfig:
+	Adding Github id to .gitconfig
+	[753d53830a53]
+
+	* .hgext/update-all:
+	Adding .hgext updater script
+	[44a61aa0c35e]
+
+2011-08-15  Michael Granger  <ged@FaerieMUD.org>
+
+	* Automated merge with ssh://deveiate.org/repo/homedir
+	[de6931737617]
+
+	* bin/laikavpn-down.scpt, bin/laikavpn-up.scpt:
+	Make the vpn scripts in bin/ executable
+	[ec39480df8e6]
+
+2011-08-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgrc:
+	Re-enabling hg bugtracker extension
+	[e1f7a4207c58]
+
+2011-08-03  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_functions:
+	Add shortnode to the hg prompt
+	[362c947ba3ce]
+
+2011-08-02  Michael Granger  <ged@FaerieMUD.org>
+
+	* bin/laikavpn-down.app, bin/laikavpn-down.scpt, bin/laikavpn-up.app,
+	bin/laikavpn-up.scpt:
+	Replacing old (PPC?) viscosity scripts with new .scpt ones
+	[815dfeb35509]
+
+	* .hgrc:
+	Adding bitbucket's fingerprint to hgrc
+	[cdae9a7ec9a0]
+
+2011-07-27  Michael Granger  <ged@FaerieMUD.org>
+
+	* .irbrc, .irbrc.d/history.rb:
+	Fixed IRB history
+	[83b52f307a17]
+
+	* .hgrc:
+	Adding verse2 server fingerprint
+	[795c9fcf75e7]
+
+2011-07-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Adding some more excludes to the hoerc
+	[6ae8aebff474]
+
+2011-06-27  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgrc:
+	Page slog and qstat
+	[d76b6dad16fd]
+
+	* .hgext/styles/slog, .hgrc:
+	Better "hg slog" thanks to Mahlon, and "qstat" hg alias
+	[1cfce5bd4b0d]
+
+2011-06-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_functions, .bash_profile:
+	Updated hg prompt
+	[9b72975702d3]
+
+2011-06-15  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_functions, .bash_profile, .colorcodes:
+	Fixed hg prompt
+	[ccd8d5927f87]
+
+2011-06-14  Michael Granger  <ged@FaerieMUD.org>
+
+	* bin/editor:
+	Disable Sublime in bin/editor until it improves a bit
+	[0473c36cb869]
+
+	* .irbrc.d/apeiros-history.rb, .irbrc.d/apeiros-history.rb.disabled,
+	.irbrc.d/history.rb:
+	Disable Apeiros history until I have time to fix it
+	[6840c03b2656]
+
+	* .bash_functions, .bash_profile, .hgrc:
+	Adding hgprompt
+	[e340d86ec224]
+
+2011-06-13  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoe_template/default/Rakefile.erb:
+	SImplifying the Rakefile in the hoe template
+	[39f50a39ac2e]
+
+2011-06-10  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoerc:
+	Remove yard from .hoerc
+	[422a1a01b80c]
+
+	* .hgrc:
+	Disable pbranch and bugtrack for now
+	[882e2c623827]
+
+	* .hgrc, .hgsubstate:
+	Automated merge with ssh://deveiate.org/repo/homedir
+	[1b3acc579877]
+
+	* .hgsub, .hgsubstate:
+	Adding hgsubversion ext
+	[ce8ec35b0b23]
+
+	* .bash_profile:
+	Disable bash completions
+	[9b38c567f920]
+
+	* .hgrc:
+	Extensions, cacerts in .hgrc
+	[7f40ba8f3e10]
+
+2011-04-29  Michael Granger  <ged@FaerieMUD.org>
+
+	* Merged with d9164e0f15ca
+	[f67d895aad8c]
+
+	* .irbrc, .irbrc.d/apeiros-coreexts.rb, .irbrc.d/apeiros-history.rb,
+	.irbrc.d/bentracer.rb, .irbrc.d/history.rb, .irbrc.d/irbtools.rb,
+	.irbrc.d/manners.rb.disabled, .irbrc.d/ri.rb.disabled, bin/editor:
+	Adding .irbrc and .d directory
+	[051b9b472e9f]
+
+2011-04-25  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgrc:
+	Disabling compass and pbranch HG extensions
+	[d9164e0f15ca]
+
+	* .ssh/config:
+	Renaming MDC hosts after the move
+	[6e9117aa3c71]
+
+2011-04-13  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgsub, .hgsubstate, .hgsubstate:
+	Removing .hgext subrepos, as they're more trouble than they're worth
+	[de2962bc9671]
+
+	* .hoerc:
+	Fix plugins in .hoerc
+	[14e571aaa745]
+
+	* .hgrc:
+	Add kaleidoscope wrapper to .hgrc
+	[91115dd49069]
+
+	* bin/editor:
+	Add sublime text to the bin/editor wrapper
+	[1913e2ccd67c]
+
+2011-03-23  Michael Granger  <ged@FaerieMUD.org>
+
+	* Merged with cee2a0bc59be
+	[e0409d5a6b1a]
+
+2011-03-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* Merged with 7d514a922f4e
+	[cee2a0bc59be]
+
+	* .hgrc:
+	Adding "histlog" alias to .hgrc
+	[256414d30e30]
+
+	* .hgsubstate, .hoerc:
+	Added hoe-deveiate values to .hoerc
+	[7d514a922f4e]
+
+2011-03-23  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_profile:
+	Corrected DTerm conditional
+	[651e2367b899]
+
+2011-03-20  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_profile:
+	Reworked .bash_profile for DTerm
+	[6f5c37d44b21]
+
+2011-03-13  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoe_template/default/README.md.erb:
+	Updated the contributing section of the README of the hoe template
+	[f3ff426c204b]
+
+	* .tmux.conf:
+	Adding tmux config
+	[2a03c16e7d7b]
+
+	* .hgrc:
+	Re-enable bugtracker, track current bookmark
+	[1895f91bf404]
+
+2011-02-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_aliases:
+	Avoid expansion of the subshell command in the mq alias
+	[011324346ea9]
+
+	* .bash_aliases:
+	Fixed type in .bash_aliases
+	[e851a567111e]
+
+2011-02-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_aliases:
+	Fixed quotes in mq alias
+	[2a7059fbb33d]
+
+	* .hgrc:
+	Added emacsdiff merge config
+	[f2680e2f0c50]
+
+	* .hgrc:
+	Add some mq ops to the ones that get pagination, remove the rake
+	subrepo from default paths
+	[164a66c63d5b]
+
+	* .bash_aliases:
+	Adding an 'mq' alias for managing Mercurial patch queue repos
+	[cd0e2cd5b581]
+
+2011-02-05  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgrc:
+	Updated .hgrc
+	[c17816ac3c81]
+
+	* .hoe_template/.autotest.erb, .hoe_template/History.md.erb,
+	.hoe_template/Manifest.txt.erb, .hoe_template/README.md.erb,
+	.hoe_template/Rakefile.erb, .hoe_template/bin/file_name.erb,
+	.hoe_template/default/.autotest.erb,
+	.hoe_template/default/History.md.erb,
+	.hoe_template/default/Manifest.txt.erb,
+	.hoe_template/default/README.md.erb,
+	.hoe_template/default/Rakefile.erb,
+	.hoe_template/default/bin/file_name.erb,
+	.hoe_template/default/lib/file_name.rb.erb,
+	.hoe_template/default/spec/file_name_spec.rb.erb,
+	.hoe_template/lib/file_name.rb.erb,
+	.hoe_template/spec/file_name_spec.rb.erb:
+	Updated by hoe-2.9.0
+	[f4a73750b158]
+
+2011-01-24  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgrc:
+	Turned off 'shelve' and 'bugtrack', enabled mq
+	[0e79576e73ef]
+
+	* .ssh/config:
+	Updated lume's hostname in ssh config
+	[b1d7ed5116d2]
+
+2011-01-21  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hoe_template/Rakefile.erb, .hoe_template/lib/file_name.rb.erb:
+	Updated hoe template
+	[7f68e6c0e7f1]
+
+2010-12-29  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgsub:
+	User + FQDN for the deveiate.org subrepo
+	[578e51e3babf]
+
+	* .hgsub:
+	Bitbucket public URLs are https
+	[fbb374f6296d]
+
+	* .hgsub, .hgsubstate:
+	Changing hgext subrepo URLs to public (read-only) ones to avoid
+	chicken-and-egg problem with SSH keys
+	[074d03c07d10]
+
+	* .hgsubstate, .hoe_template/Rakefile.erb:
+	Bugfix for the Hoe Rakefile template
+	[9c7e30f38fc1]
+
+2010-12-24  Michael Granger  <ged@FaerieMUD.org>
+
+	* Automated merge with ssh://deveiate.org/repo/homedir
+	[77acbcaca8b2]
+
+	* .hoerc:
+	Adding email info
+	[7412c493702e]
+
+	* .hoe_template/.autotest.erb, .hoe_template/History.md.erb,
+	.hoe_template/Manifest.txt.erb, .hoe_template/README.md.erb,
+	.hoe_template/Rakefile.erb, .hoe_template/bin/file_name.erb,
+	.hoe_template/lib/file_name.rb.erb,
+	.hoe_template/spec/file_name_spec.rb.erb:
+	ADding Hoe templates
+	[9f5cba4678d3]
+
+2010-12-21  Michael Granger  <ged@FaerieMUD.org>
+
+	* .environment:
+	Fix conditional in .environment
+	[39a44b6d2d64]
+
+2010-12-14  Michael Granger  <ged@FaerieMUD.org>
+
+	* Automated merge with ssh://deveiate/repo/homedir
+	[8ec897432e8a]
+
+	* .hoerc:
+	Adding hoe rcfile
+	[4dc8b83c0f6a]
+
+	* .bashrc, .environment:
+	Merged with 28:f9eb43712294
+	[2e65a2291df1]
+
+	* .bashrc:
+	Invoke the path helper for non-login shells, too
+	[3cc827922dc4]
+
+2010-12-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* .environment:
+	Cleaned up the .environment
+	[d7654d9aa111]
+
+	* .bashrc:
+	Don't override the system path, just add HOME/bin to it
+	[41318ead4cc0]
+
+2010-12-13  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bashrc, .gemrc, .hgrc, .ssh/config:
+	Automated merge with ssh://deveiate.org/repo/homedir
+	[f9eb43712294]
+
+	* .ssh/config:
+	Add tenar aliases
+	[b2c084765849]
+
+	* .hgrc:
+	Put the bugtracker ext in the right directory
+	[af63616fdb3c]
+
+	* .bashrc:
+	Don't set the PATH explicitly
+	[34234c03cb64]
+
+	* .gem/credentials, .gem/ged-public_gem_cert.pem, .gemrc:
+	Updating gemcutter creds/config
+	[ee87ec42a8dd]
+
+2010-12-10  Michael Granger  <ged@FaerieMUD.org>
+
+	* .bash_aliases, .dircolors, .environment:
+	Add missing .dircolors, remove ARCHFLAGS from environment, replace
+	face alias with ldaped
+	[43445a8d7e20]
+
+	* .bash_aliases, .bash_functions, .bash_profile, .bashrc, .elisp/ini
+	/ini-auto.el, .elisp/ini/ini-customize.el, .elisp/ini/ini-misc.el,
+	.environment, .gemrc, .hgrc, .hgsubstate, .screenrc, .ssh/config,
+	bin/mate:
+	Merging in stuff from pelimer
+	[e9ee220a3b80]
+
+2010-12-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* .ssh/config:
+	Adding deveiate.org alias
+	[69b69c6db9ae]
+
+	* .gemrc, .ssh/config:
+	Merged with 17:ac846fb3d551
+	[b8a40037e8d9]
+
+	* .gemrc:
+	Add laika rubygems repo, rename executables to match Ruby, and don't
+	build ri
+	[2dd454676a65]
+
+	* .ssh/config:
+	Gont moved to the bennett subdomain
+	[202ac28d9c9c]
+
+	* .hgignore:
+	Adding ignorefile
+	[1da77ca654a2]
+
+2010-11-04  Michael Granger  <ged@FaerieMUD.org>
+
+	* .ssh/config:
+	Removing some old stuff from .ssh/config
+	[ac846fb3d551]
+
+	* .screenrc:
+	Enable login shells by default in screen
+	[7c1c5fa68d12]
+
+	* .gemrc:
+	Adding rubygems.laika.com to .gemrc
+	[cbdb74099476]
+
+	* .environment:
+	Stripped down the .environment file
+	[92f2c2dd4401]
+
+	* .elisp/ini/ini-auto.el, .elisp/ini/ini-customize.el, .elisp/ini/ini-
+	mic-paren.el, .elisp/ini/ini-misc.el, .elisp/ini/ini-mouse.el:
+	Merging .elisp changes from mill
+	[701588704015]
+
+	* .bashrc:
+	Updating .bashrc from mill's copy
+	[55003dada925]
+
+	* .bash_profile:
+	Merging in changes from mill's .bash_profile
+	[e525ea580c1f]
+
+2010-11-01  Michael Granger  <ged@FaerieMUD.org>
+
+	* Merged with changes from gont.
+	[faf0e0104699]
+
+2010-10-31  Michael Granger  <ged@FaerieMUD.org>
+
+	* .elisp/ini/ini-customize.el, bin/MailWire.scpt, bin/ZenTest.rb, bin
+	/add-list-to-cvsignore.sh, bin/addlog, bin/adduser, bin/bluecloth,
+	bin/boondocks.pl, bin/bootstrap.sh, bin/boxscore.pl, bin/buildTool,
+	bin/check-env.sh, bin/coderedShutdown.pl, bin/codersDay,
+	bin/currentlyPlaying, bin/cvs-backup, bin/cvs2cl, bin/cvs2cl.pl,
+	bin/cvsstat, bin/dbimon, bin/diffmate, bin/dnsq-trace.rb,
+	bin/dprofpp.graphviz, bin/dtruss.mine, bin/emacs.command, bin
+	/fastri-server, bin/fotoup.pl, bin/getlog, bin/gnome-debug, bin
+	/gnome-head, bin/gnome-head-libs, bin/gnome-home, bin/gnome-release,
+	bin/gnome-test, bin/gnome-unstable, bin/gnome14wrapper,
+	bin/gnome20wrapper, bin/hatcher, bin/hexlify, bin/hexlifyArray,
+	bin/hmake, bin/htmlifyPerl.pl, bin/htmlifyRuby.rb, bin/iceStats.pl,
+	bin/iceboxShout.pl, bin/install-check, bin/install-hack,
+	bin/jhbuild, bin/kde2wrapper, bin/ljlatest.pl, bin/log2rss.pl,
+	bin/lupdate, bin/macosver, bin/makeCRubyMethods.rb, bin/makelog,
+	bin/makemanifest, bin/mate, bin/mateup.rb, bin/merge_things,
+	bin/modmake.sh, bin/modules.sh, bin/modversion, bin/moveman.rb,
+	bin/mp3insert, bin/newlog, bin/pennyarcade.pl, bin/play,
+	bin/playDeveiate, bin/playHalfDeveiate, bin/post-review,
+	bin/ppmtolss16, bin/processEpsFiles, bin/pxlink, bin/rebuild.sh,
+	bin/refilter.rb, bin/requestSong.pl, bin/requiremaker, bin/rope,
+	bin/rubyheader.rb, bin/runconf.sh, bin/rupdate, bin/sconnect,
+	bin/sdiff, bin/setTransparency.pl, bin/shelldap, bin/songchange, bin
+	/ss-update, bin/svndiffshim.py, bin/tm_dialog, bin/toggleProxy.rb,
+	bin/unpxlink, bin/update-vicious.sh, bin/upload, bin/vbs-aliases,
+	bin/vpnup.rb, bin/webrestart, bin/webtail, bin/xmmsPlay,
+	bin/xmmsPlayPause, bin/xmmscurrent.sh, bin/xyparser, bin/xystrip:
+	Cleanup of old stuff in ~/bin
+	[8841b18698c3]
+
+	* bin/MailWire.scpt, bin/ZenTest.rb, bin/add-list-to-cvsignore.sh,
+	bin/addlog, bin/adduser, bin/bluecloth, bin/boondocks.pl,
+	bin/bootstrap.sh, bin/boxscore.pl, bin/buildTool, bin/c++, bin/cc,
+	bin/check-env.sh, bin/coderedShutdown.pl, bin/codersDay,
+	bin/colorgcc, bin/currentlyPlaying, bin/cvs-backup, bin/cvs2cl,
+	bin/cvs2cl.pl, bin/cvsstat, bin/dbimon, bin/diffmate, bin/dnsq-
+	trace.rb, bin/dprofpp.graphviz, bin/dtruss.mine, bin/editor,
+	bin/emacs.command, bin/fastri-server, bin/fotoup.pl, bin/g++,
+	bin/gcc, bin/getlog, bin/gnome-debug, bin/gnome-head, bin/gnome-
+	head-libs, bin/gnome-home, bin/gnome-release, bin/gnome-test, bin
+	/gnome-unstable, bin/gnome14wrapper, bin/gnome20wrapper,
+	bin/hatcher, bin/hexlify, bin/hexlifyArray, bin/hilite, bin/hmake,
+	bin/htmlifyPerl.pl, bin/htmlifyRuby.rb, bin/iceStats.pl,
+	bin/iceboxShout.pl, bin/install-check, bin/install-hack,
+	bin/jhbuild, bin/kde2wrapper, bin/laikavpn-down.app, bin/laikavpn-
+	up.app, bin/ljlatest.pl, bin/log2rss.pl, bin/lupdate, bin/macosver,
+	bin/makeCRubyMethods.rb, bin/makelog, bin/makemanifest, bin/mate,
+	bin/mateup.rb, bin/merge_things, bin/modmake.sh, bin/modules.sh,
+	bin/modversion, bin/moveman.rb, bin/mp3insert, bin/newlog,
+	bin/pennyarcade.pl, bin/perlfunc, bin/perlheader, bin/play,
+	bin/playDeveiate, bin/playHalfDeveiate, bin/post-review,
+	bin/ppmtolss16, bin/processEpsFiles, bin/pxlink, bin/rdgen,
+	bin/rebuild.sh, bin/redcursor, bin/refilter.rb, bin/requestSong.pl,
+	bin/requiremaker, bin/rope, bin/rubyheader.rb, bin/runconf.sh,
+	bin/rupdate, bin/sconnect, bin/sdiff, bin/setTransparency.pl,
+	bin/shelldap, bin/songchange, bin/ss-update, bin/svndiffshim.py,
+	bin/textilize, bin/tm_dialog, bin/toggleProxy.rb, bin/unpxlink, bin
+	/update-vicious.sh, bin/upload, bin/vbs-aliases, bin/vpnup.rb,
+	bin/webrestart, bin/webtail, bin/xmmsPlay, bin/xmmsPlayPause,
+	bin/xmmscurrent.sh, bin/xyparser, bin/xystrip:
+	Adding bin directory
+	[fee18c619348]
+
+	* .hgsub:
+	Pointing bugtracker ext at my own clone
+	[dc61b1930115]
+
+	* .hgsub, .hgsubstate:
+	Adding mercurial extensions subrepos from gont
+	[35150d0d2406]
+
+	* .hgsub, .hgsubstate:
+	Adding mercurial extension subrepo
+	[17edfbb50015]
+
+	* .bash_aliases, .bash_functions, .bash_profile, .bashrc, .colorcodes,
+	.elisp/ini/ini-align.el, .elisp/ini/ini-auto.el, .elisp/ini/ini-
+	buffer-switch.el, .elisp/ini/ini-ccmode.el, .elisp/ini/ini-
+	customize.el, .elisp/ini/ini-desktop.el, .elisp/ini/ini-dired.el,
+	.elisp/ini/ini-envvars.el, .elisp/ini/ini-expand.el, .elisp/ini/ini-
+	gnuserv.el, .elisp/ini/ini-html.el, .elisp/ini/ini-keybindings.el,
+	.elisp/ini/ini-mic-paren.el, .elisp/ini/ini-misc.el, .elisp/ini/ini-
+	mouse.el, .elisp/ini/ini-mt.el, .elisp/ini/ini-my-functions.el,
+	.elisp/ini/ini-perl.el, .elisp/ini/ini-rails.el, .elisp/ini/ini-
+	ruby.el, .elisp/ini/ini-selective.el, .elisp/ini/ini-template.el,
+	.elisp/ini/ini-xml.el, .elisp/packages/auto-autoloads.el,
+	.elisp/packages/autoconf-mode.el, .elisp/packages/autotest-mode.el,
+	.elisp/packages/base64.el, .elisp/packages/blogger.el,
+	.elisp/packages/camelCase-mode.el, .elisp/packages/crypt++.el,
+	.elisp/packages/css-mode.el, .elisp/packages/css.el, .elisp/packages
+	/custom-load.el, .elisp/packages/default.el,
+	.elisp/packages/desktopaid.el, .elisp/packages/devices.el,
+	.elisp/packages/docomp.el, .elisp/packages/dsssl-flow.el,
+	.elisp/packages/dsssl.el, .elisp/packages/erlang.el,
+	.elisp/packages/filladapt.el, .elisp/packages/folding.el,
+	.elisp/packages/font.el, .elisp/packages/format-spec.el,
+	.elisp/packages/generic-extras.el, .elisp/packages/generic-mode.el,
+	.elisp/packages/gnuserv-compat.el, .elisp/packages/gnuserv.el,
+	.elisp/packages/hhm-config.el, .elisp/packages/hhm-netscape.el,
+	.elisp/packages/html-font.el, .elisp/packages/html-view.el,
+	.elisp/packages/htmlize.el, .elisp/packages/images.el,
+	.elisp/packages/inf-ruby.el, .elisp/packages/javascript-mode.el,
+	.elisp/packages/jimminy.el, .elisp/packages/ldap-mode.el,
+	.elisp/packages/lily-mud.el, .elisp/packages/ljupdate.el,
+	.elisp/packages/lua-mode.el, .elisp/packages/md5.el, .elisp/packages
+	/mew-w3m.el, .elisp/packages/mic-paren.el, .elisp/packages/mime-
+	w3m.el, .elisp/packages/minibuf-electric-gnuemacs.el,
+	.elisp/packages/mm.el, .elisp/packages/mode-compile.el,
+	.elisp/packages/mule-sysdp.el, .elisp/packages/multi-mode.el,
+	.elisp/packages/num-outline.el, .elisp/packages/octet.el,
+	.elisp/packages/org.el, .elisp/packages/outlines.el, .elisp/packages
+	/po-compat.el, .elisp/packages/po-mode.el, .elisp/packages/psvn.el,
+	.elisp/packages/python-mode.el, .elisp/packages/rcov.el,
+	.elisp/packages/rd-mode.el, .elisp/packages/remem.el,
+	.elisp/packages/ri-ruby.el, .elisp/packages/rsz-mini.el,
+	.elisp/packages/ruby-electric.el, .elisp/packages/ruby-mode.el,
+	.elisp/packages/rubydb2x.el, .elisp/packages/rubydb3x.el,
+	.elisp/packages/socks.el, .elisp/packages/ssl.el,
+	.elisp/packages/subdirs.el, .elisp/packages/tabular-alignment.el,
+	.elisp/packages/tapestry.el, .elisp/packages/tdtd-font-maker.el,
+	.elisp/packages/tdtd-font.el, .elisp/packages/tdtd.el,
+	.elisp/packages/template.el, .elisp/packages/url-auth.el,
+	.elisp/packages/url-cache.el, .elisp/packages/url-cid.el,
+	.elisp/packages/url-cookie.el, .elisp/packages/url-file.el,
+	.elisp/packages/url-gopher.el, .elisp/packages/url-gw.el,
+	.elisp/packages/url-http.el, .elisp/packages/url-irc.el,
+	.elisp/packages/url-ldap.el, .elisp/packages/url-mail.el,
+	.elisp/packages/url-misc.el, .elisp/packages/url-news.el,
+	.elisp/packages/url-nfs.el, .elisp/packages/url-ns.el,
+	.elisp/packages/url-parse.el, .elisp/packages/url-vars.el,
+	.elisp/packages/url.el, .elisp/packages/xml-rpc.el,
+	.elisp/packages/xml.el, .elisp/packages/xrdb-mode.el, .environment,
+	.gemrc, .gitconfig, .screenrc, .ssh/config:
+	Adding a bunch of initial stuff
+	[9091a2f98bbf]
+
+	* .hgrc:
+	Adding my .hgrc
+	[c75b3e5524bb]

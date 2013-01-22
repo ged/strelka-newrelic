@@ -1,0 +1,5 @@
+# .gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+hoe-deveiate -v0.1.1
+strelka -v0.1.0
+loggability -v0.5.0
+newrelic_rpm -v3.5.5.38
