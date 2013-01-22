@@ -1,8 +1,8 @@
-.autotest
 ChangeLog
 History.rdoc
 Manifest.txt
 README.rdoc
 Rakefile
 lib/strelka/app/newrelic.rb
-test/strelka/app/newrelic_spec.rb
+newrelic.yml
+spec/strelka/app/newrelic_spec.rb

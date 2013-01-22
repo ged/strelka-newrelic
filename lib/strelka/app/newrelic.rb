@@ -58,7 +58,7 @@ module Strelka::App::NewRelic
 	    NewRelic::Agent.logger = log_wrapper
 
 		environment = 'development' if self.class.in_devmode?
-		options = { env: environment, log: Loggability[NewRelic] }
+		options = { env: environment, log: log_wrapper }
 
 		self.log.info "Starting the NewRelic agent."
 		NewRelic::Agent.manual_start( options )
@@ -83,7 +83,7 @@ module Strelka::App::NewRelic
 			end
 
 		self.log.debug "  txname is: %p" % [ txname ]
-		options = { name: txname.to_s, request: request, class_name: self.app_id }
+		options = { name: txname.to_s, request: request, category: :rack }
 		self.perform_action_with_newrelic_trace( options ) do
 			super
 		end

@@ -48,7 +48,7 @@ describe Strelka::App::NewRelic do
 
 
 	before( :all ) do
-		setup_logging()
+		setup_logging( :debug )
 
 		@request_factory = Mongrel2::RequestFactory.new( route: '' )
 
