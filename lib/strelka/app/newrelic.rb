@@ -12,10 +12,21 @@ require 'strelka/app' unless defined?( Strelka::App )
 module NewRelic
 	extend Loggability
 	log_as :newrelic
+
+	module Agent
+		class AgentLogger
+
+			# No-op this unhelpful crap
+			remove_method :set_log_format!
+			def set_log_format!; end
+
+		end
+	end
+
 end
 
 
-# Strelka::App plugin module for Metriks statistics and analysis.
+# Strelka::App plugin module for reporting application performance to New Relic.
 module Strelka::App::NewRelic
 	extend Strelka::Plugin,
 	       Configurability
@@ -59,7 +70,6 @@ module Strelka::App::NewRelic
 
 		self.log.info "Starting the NewRelic agent."
 		NewRelic::Agent.manual_start( options )
-		self.log.info "  started."
 
 		super
 	end
@@ -84,10 +94,25 @@ module Strelka::App::NewRelic
 			request:  request,
 			category: 'Controller/Strelka',
 		}
-		self.perform_action_with_newrelic_trace( options ) do
+		response = self.perform_action_with_newrelic_trace( options ) do
 			super
 		end
 
+		return response
+	end
+
+
+	### Inject browser timing if the response supports it.
+	def fixup_response( response )
+		response = super
+
+		self.log.debug "Injecting New Relic browser timing into %p" % [ response.body ]
+        response.body.rum_header = NewRelic::Agent.browser_timing_header if
+			response.body.respond_to?( :rum_header )
+        response.body.rum_footer = NewRelic::Agent.browser_timing_footer if
+			response.body.respond_to?( :rum_footer )
+
+		return response
 	end
 
 

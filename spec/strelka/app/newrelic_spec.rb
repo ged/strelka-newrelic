@@ -9,7 +9,10 @@ BEGIN {
 	srcdir = basedir.parent
 	strelkadir = srcdir + 'Strelka/lib'
 
+	nradir = basedir.parent.parent + 'newrelic/ruby_agent/lib'
+
 	$LOAD_PATH.unshift( strelkadir.to_s ) unless $LOAD_PATH.include?( strelkadir.to_s )
+	$LOAD_PATH.unshift( nradir.to_s ) unless $LOAD_PATH.include?( nradir.to_s )
 	$LOAD_PATH.unshift( basedir ) unless $LOAD_PATH.include?( basedir )
 }
 
@@ -60,12 +63,11 @@ describe Strelka::App::NewRelic do
 			:'rum.enabled'          => true,
 			:episodes_file          => 'this_is_my_file',
 			:'rum.jsonp'            => true,
-			# :license_key            => 'a' * 40
+			:license_key            => 'a' * 40,
+			:log_level              => :debug,
+			:log                    => Loggability[NewRelic],
 		}
 		NewRelic::Agent.config.apply_config( @nr_config )
-	    @log_wrapper = NewRelic::Agent::AgentLogger.new( {:log_level => :debug}, '', Loggability[NewRelic] )
-	    NewRelic::Agent.logger = @log_wrapper
-
 	end
 
 	after( :all ) do
@@ -111,6 +113,10 @@ describe Strelka::App::NewRelic do
 					plugin :routing
 
 					get '/foo' do |request|
+						self.log.debug "Agent logger: %p" % [ NewRelic::Agent.logger ]
+						NewRelic::Agent.logger.debug "DEBUG"
+						NewRelic::Agent.logger.info "INFO"
+						NewRelic::Agent.browser_timing_header
 						res = request.response
 						res.status = HTTP::OK
 						return res
@@ -122,6 +128,11 @@ describe Strelka::App::NewRelic do
 						return res
 					end
 				end
+
+				logdevice = Loggability[ NewRelic ]
+				logger = NewRelic::Agent::AgentLogger.new(NewRelic::Agent.config, '', logdevice )
+				NewRelic::Agent.logger = logger
+					
 			end
 
 			after( :each ) do
@@ -136,6 +147,14 @@ describe Strelka::App::NewRelic do
 
 	            engine = NewRelic::Agent.agent.stats_engine
 	            engine.stats_hash.keys.map( &:to_s ).should include( 'Controller/Strelka/TestApp/GET_foo' )
+			end
+
+			it "adds browser timing javascript header and footer to the response notes" do
+				request = @request_factory.get( '/foo' )
+				response = @app.new.handle( request )
+
+
+				
 			end
 			
 		end
