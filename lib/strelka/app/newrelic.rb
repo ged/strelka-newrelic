@@ -79,14 +79,14 @@ module Strelka::App::NewRelic
 	def handle_request( request )
 		self.log.debug "[:newrelic] Instrumenting with NewRelic."
 
-		txname = if request.notes[:routing][:route]
+		txname = if !request.notes[:routing][:route].empty?
 				note = request.notes[:routing][:route]
 				self.log.debug "Making route name out of the route notes: %p" % [ note ]
 				self.make_route_name( note )
 			else
 				self.log.debug "Making route name out of the verb (%p) and app path (%p)" %
 					[ request.verb, request.app_path ]
-				"%s %s" % [ request.verb, request.app_path ]
+					"handle_request"
 			end
 
 		options = {
@@ -98,19 +98,10 @@ module Strelka::App::NewRelic
 			super
 		end
 
-		return response
-	end
+		response.notes[:rum_header] = NewRelic::Agent.browser_timing_header
+		response.notes[:rum_footer] = NewRelic::Agent.browser_timing_footer
 
-
-	### Inject browser timing if the response supports it.
-	def fixup_response( response )
-		response = super
-
-		self.log.debug "Injecting New Relic browser timing into %p" % [ response.body ]
-        response.body.rum_header = NewRelic::Agent.browser_timing_header if
-			response.body.respond_to?( :rum_header )
-        response.body.rum_footer = NewRelic::Agent.browser_timing_footer if
-			response.body.respond_to?( :rum_footer )
+		self.log.debug "  response notes: %p" % [ response.notes ]
 
 		return response
 	end
