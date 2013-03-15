@@ -109,7 +109,7 @@ describe Strelka::App::NewRelic do
 				@app.instance_eval do
 					plugin :parameters
 					param :sku, :integer
-			
+
 					plugin :routing
 
 					get '/foo' do |request|
@@ -121,7 +121,7 @@ describe Strelka::App::NewRelic do
 						res.status = HTTP::OK
 						return res
 					end
-				
+
 					post '/foo/:sku' do |request|
 						res = request.response
 						res.status = HTTP::OK
@@ -132,7 +132,7 @@ describe Strelka::App::NewRelic do
 				logdevice = Loggability[ NewRelic ]
 				logger = NewRelic::Agent::AgentLogger.new(NewRelic::Agent.config, '', logdevice )
 				NewRelic::Agent.logger = logger
-					
+
 			end
 
 			after( :each ) do
@@ -146,7 +146,7 @@ describe Strelka::App::NewRelic do
 				response.status.should == HTTP::OK
 
 	            engine = NewRelic::Agent.agent.stats_engine
-	            engine.stats_hash.keys.map( &:to_s ).should include( 'Controller/Strelka/TestApp/GET_foo' )
+	            engine.metrics.should include( 'Controller/Strelka/TestApp/GET_foo' )
 			end
 
 			it "adds browser timing javascript header and footer to the response notes" do
@@ -156,7 +156,7 @@ describe Strelka::App::NewRelic do
 
 				
 			end
-			
+
 		end
 
 

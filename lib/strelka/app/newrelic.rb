@@ -104,6 +104,9 @@ module Strelka::App::NewRelic
 		self.log.debug "  response notes: %p" % [ response.notes ]
 
 		return response
+	rescue => err
+		NewRelic::Agent.notice_error( err.message )
+		raise
 	end
 
 

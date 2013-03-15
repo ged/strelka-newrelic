@@ -18,10 +18,9 @@ hoespec = Hoe.spec 'strelka-newrelic' do
 
 	self.developer 'Michael Granger', 'ged@FaerieMUD.org'
 
-	self.dependency 'strelka', '~> 0.1'
-	self.dependency 'loggability', '~> 0.5'
+	self.dependency 'strelka', '~> 0.3'
 	self.dependency 'newrelic_rpm', '~> 3.5'
-	self.dependency 'hoe-deveiate', '~> 0.1', :developer
+	self.dependency 'hoe-deveiate', '~> 0.2', :developer
 
 	self.spec_extras[:licenses] = ["BSD"]
 	self.spec_extras[:rdoc_options] = ['-f', 'fivefish', '-t', 'Strelka New Relic Analysis']
