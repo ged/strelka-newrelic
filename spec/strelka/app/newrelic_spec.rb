@@ -59,13 +59,12 @@ describe Strelka::App::NewRelic do
 			:beacon                 => 'beacon',
 			:disable_mobile_headers => false,
 			:browser_key            => 'browserKey',
-			:application_id         => '5, 6', # collector can return app multiple ids
+			:application_id         => '5, 6', # collector can return multiple appids
 			:'rum.enabled'          => true,
 			:episodes_file          => 'this_is_my_file',
 			:'rum.jsonp'            => true,
 			:license_key            => 'a' * 40,
 			:log_level              => :debug,
-			:log                    => Loggability[NewRelic],
 		}
 		NewRelic::Agent.config.apply_config( @nr_config )
 	end
@@ -79,7 +78,7 @@ describe Strelka::App::NewRelic do
 	it_should_behave_like( "A Strelka::App Plugin" )
 
 
-	describe "an including App" do
+	describe "included in an App" do
 
 		before( :each ) do
 			@app = Class.new( Strelka::App ) do
@@ -101,9 +100,7 @@ describe Strelka::App::NewRelic do
 			@app.new.run
 		end
 
-
-
-		context "with routing" do
+		context "that has routing" do
 
 			before( :each ) do
 				@app.instance_eval do
@@ -129,9 +126,9 @@ describe Strelka::App::NewRelic do
 					end
 				end
 
-				logdevice = Loggability[ NewRelic ]
-				logger = NewRelic::Agent::AgentLogger.new(NewRelic::Agent.config, '', logdevice )
-				NewRelic::Agent.logger = logger
+				# logdevice = Loggability[ NewRelic ]
+				# logger = NewRelic::Agent::AgentLogger.new(NewRelic::Agent.config, '', logdevice )
+				# NewRelic::Agent.logger = logger
 
 			end
 
@@ -142,24 +139,27 @@ describe Strelka::App::NewRelic do
 
 			it "records a trace for requests to simple routes" do
 				request = @request_factory.get( '/foo' )
-				response = @app.new.handle( request )
+				response = @app.new.start_newrelic_agent.handle( request )
 				response.status.should == HTTP::OK
 
 	            engine = NewRelic::Agent.agent.stats_engine
-	            engine.metrics.should include( 'Controller/Strelka/TestApp/GET_foo' )
+	            engine.metrics.should include(
+					"HttpDispatcher",
+					"Controller/Strelka/TestApp/GET_foo",
+					"Apdex",
+					"Apdex/Strelka/TestApp/GET_foo"
+				)
 			end
 
 			it "adds browser timing javascript header and footer to the response notes" do
 				request = @request_factory.get( '/foo' )
-				response = @app.new.handle( request )
+				response = @app.new.start_newrelic_agent.handle( request )
 
-
-				
+				response.notes[:rum_header].should =~ /NREUMQ/
+				response.notes[:rum_footer].should =~ /NREUMQ/
 			end
 
 		end
-
-
 
 
 	end

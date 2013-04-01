@@ -56,6 +56,10 @@ module Strelka::App::NewRelic
 	### section of the universal config when it's installed.
 	def self::configure( config=nil )
 		if config
+			logger = Loggability[ NewRelic ]
+			ra_logger = NewRelic::Agent::AgentLogger.new( {:log_level => 'debug'}, '', logger )
+			NewRelic::Agent.logger = ra_logger
+
 			self.log.info "Applying NewRelic config: %p" % [ config.to_hash ]
 			NewRelic::Agent.config.apply_config( config.to_hash, 1 )
 		end
@@ -64,14 +68,20 @@ module Strelka::App::NewRelic
 
 	### Set up the NewRelic agent.
 	def run( * )
-		logger      = Loggability[ NewRelic ]
-		environment = 'development' if self.class.in_devmode?
-		options     = { env: environment, log: logger }
+		self.start_newrelic_agent
+		super
+	end
+
+
+	### Starts the New Relic agent in a background thread.
+	def start_newrelic_agent
+		environment = if self.class.in_devmode? then 'development' else 'production' end
+		options     = { env: environment, dispatcher: :strelka }
 
 		self.log.info "Starting the NewRelic agent."
 		NewRelic::Agent.manual_start( options )
 
-		super
+		return self
 	end
 
 
