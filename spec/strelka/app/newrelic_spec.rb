@@ -155,10 +155,12 @@ describe Strelka::App::NewRelic do
 				response.notes[:rum_footer].should =~ /NREUMQ/
 			end
 
-			it "only tries to add browser timing JS to the response if it's got notes" do
+			it "sets browser timings even with a template response" do
 				request = @request_factory.get( '/template' )
 				response = @app.new.start_newrelic_agent.handle( request )
 				response.status.should == HTTP::OK
+				response.notes[:rum_header].should =~ /NREUMQ/
+				response.notes[:rum_footer].should =~ /NREUMQ/
 			end
 
 		end

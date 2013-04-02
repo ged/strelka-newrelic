@@ -90,6 +90,9 @@ module Strelka::App::NewRelic
 		response = nil
 		self.log.debug "[:newrelic] Instrumenting with NewRelic."
 
+		request.notes[:rum_header] = NewRelic::Agent.browser_timing_header
+		request.notes[:rum_footer] = NewRelic::Agent.browser_timing_footer
+
 		txname = if !request.notes[:routing][:route].empty?
 				note = request.notes[:routing][:route]
 				self.log.debug "Making route name out of the route notes: %p" % [ note ]
@@ -105,18 +108,10 @@ module Strelka::App::NewRelic
 			request:  request,
 			category: 'Controller/Strelka',
 		}
-		response = self.perform_action_with_newrelic_trace( options ) do
+		return self.perform_action_with_newrelic_trace( options ) do
 			super
 		end
 
-		self.log.debug "Response is: %p" % [ response ]
-		if response && response.respond_to?( :notes ) && response.notes
-			response.notes[:rum_header] = NewRelic::Agent.browser_timing_header
-			response.notes[:rum_footer] = NewRelic::Agent.browser_timing_footer
-			self.log.debug "  response notes: %p" % [ response.notes ]
-		end
-
-		return response
 	rescue => err
 		NewRelic::Agent.notice_error( err.message )
 		raise
