@@ -107,13 +107,10 @@ describe Strelka::App::NewRelic do
 					plugin :parameters
 					param :sku, :integer
 
-					plugin :routing
+					plugin :routing, :templating
 
 					get '/foo' do |request|
 						self.log.debug "Agent logger: %p" % [ NewRelic::Agent.logger ]
-						NewRelic::Agent.logger.debug "DEBUG"
-						NewRelic::Agent.logger.info "INFO"
-						NewRelic::Agent.browser_timing_header
 						res = request.response
 						res.status = HTTP::OK
 						return res
@@ -124,12 +121,11 @@ describe Strelka::App::NewRelic do
 						res.status = HTTP::OK
 						return res
 					end
+
+					get '/template' do |request|
+						return Inversion::Template.new( '' )
+					end
 				end
-
-				# logdevice = Loggability[ NewRelic ]
-				# logger = NewRelic::Agent::AgentLogger.new(NewRelic::Agent.config, '', logdevice )
-				# NewRelic::Agent.logger = logger
-
 			end
 
 			after( :each ) do
@@ -157,6 +153,12 @@ describe Strelka::App::NewRelic do
 
 				response.notes[:rum_header].should =~ /NREUMQ/
 				response.notes[:rum_footer].should =~ /NREUMQ/
+			end
+
+			it "only tries to add browser timing JS to the response if it's got notes" do
+				request = @request_factory.get( '/template' )
+				response = @app.new.start_newrelic_agent.handle( request )
+				response.status.should == HTTP::OK
 			end
 
 		end

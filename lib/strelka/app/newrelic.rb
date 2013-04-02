@@ -43,7 +43,7 @@ module Strelka::App::NewRelic
 
 
 	# Insert this plugin after routing in the app's stack
-	run_after :routing
+	run_after :routing, :templating
 
 	# Configurability API -- load newrelic configuration from the 'newrelic'
 	# section of the universal config. Since NewRelic's config is separate
@@ -87,6 +87,7 @@ module Strelka::App::NewRelic
 
 	### Mark and time the app.
 	def handle_request( request )
+		response = nil
 		self.log.debug "[:newrelic] Instrumenting with NewRelic."
 
 		txname = if !request.notes[:routing][:route].empty?
@@ -108,10 +109,12 @@ module Strelka::App::NewRelic
 			super
 		end
 
-		response.notes[:rum_header] = NewRelic::Agent.browser_timing_header
-		response.notes[:rum_footer] = NewRelic::Agent.browser_timing_footer
-
-		self.log.debug "  response notes: %p" % [ response.notes ]
+		self.log.debug "Response is: %p" % [ response ]
+		if response && response.respond_to?( :notes ) && response.notes
+			response.notes[:rum_header] = NewRelic::Agent.browser_timing_header
+			response.notes[:rum_footer] = NewRelic::Agent.browser_timing_footer
+			self.log.debug "  response notes: %p" % [ response.notes ]
+		end
 
 		return response
 	rescue => err
