@@ -63,6 +63,8 @@ module Strelka::App::NewRelic
 			self.log.info "Applying NewRelic config: %p" % [ config.to_hash ]
 			NewRelic::Agent.config.apply_config( config.to_hash, 1 )
 		end
+
+		super
 	end
 
 
@@ -75,10 +77,12 @@ module Strelka::App::NewRelic
 
 	### Starts the New Relic agent in a background thread.
 	def start_newrelic_agent
-		environment = if self.class.in_devmode? then 'development' else 'production' end
-		options     = { env: environment, dispatcher: :strelka }
+		options     = {
+			framework: :ruby,
+			dispatcher: :strelka
+		}
 
-		self.log.info "Starting the NewRelic agent."
+		self.log.info "Starting the NewRelic agent with options: %p." % [ options ]
 		NewRelic::Agent.manual_start( options )
 
 		return self
