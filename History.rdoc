@@ -1,3 +1,9 @@
+== v0.0.2 [2013-04-01] Michael Granger <ged@FaerieMUD.org>
+
+Bugfixes:
+- Only try to add RUM header/footer when the response has notes.
+
+
 == v0.0.1 [2013-01-16] Michael Granger <ged@FaerieMUD.org>
 
 Initial release.
